@@ -1,0 +1,17 @@
+[Unit]
+Description=Bookstack mariadb
+
+[Container]
+Pod=bookstack.pod
+ContainerName=bookstack-mariadb
+AutoUpdate=registry
+Environment=TZ=Etc/UTC MYSQL_ROOT_PASSWORD=bookstack MYSQL_DATABASE=bookstack MYSQL_USER=bookstack MYSQL_PASSWORD=bookstack
+Volume=bookstack_db_data:/config
+Image=lscr.io/linuxserver/mariadb:11.4.8
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
+RequiredBy=bookstack-server.service
