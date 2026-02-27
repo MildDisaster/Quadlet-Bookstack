@@ -1,0 +1,4 @@
+[Pod]
+PodName=bookstack
+Network=pasta:-i,ens20
+PublishPort=6875:80
